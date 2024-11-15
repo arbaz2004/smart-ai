@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Q&A System</title>
+    <style>
+        /* CSS Code */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        #questionInput {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #askButton {
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #askButton:hover {
+            background-color: #0056b3;
+        }
+
+        .answer {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ask Me Anything</h1>
+        <input id="questionInput" type="text" placeholder="Type your question here...">
+        <button id="askButton">Ask</button>
+        <div id="answerDisplay" class="answer"></div>
+    </div>
+
+    <script>
+        // JavaScript Code
+        const predefinedAnswers = {
+            "what is java": "Java is a high-level, class-based, object-oriented programming language that is widely used for building applications.",
+            "what is python": "Python is a popular programming language known for its simplicity and versatility, often used for web development, data analysis, and AI.",
+            "what is html": "HTML stands for HyperText Markup Language, and it is used to create the structure of web pages.",
+            "what is css": "CSS stands for Cascading Style Sheets, and it is used to style and layout web pages."
+        };
+
+        document.getElementById('askButton').addEventListener('click', () => {
+            const question = document.getElementById('questionInput').value.trim().toLowerCase();
+            const answerDisplay = document.getElementById('answerDisplay');
+
+            if (!question) {
+                answerDisplay.textContent = "Please ask a valid question.";
+                return;
+            }
+
+            // Check for predefined answers
+            if (predefinedAnswers[question]) {
+                answerDisplay.textContent = predefinedAnswers[question];
+            } else {
+                answerDisplay.textContent = "I don't know the answer to that question yet.";
+            }
+        });
+    </script>
+</body>
+</html>
